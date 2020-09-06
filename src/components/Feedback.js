@@ -1,21 +1,26 @@
 import React from "react";
 
-const Feedback = () => {
+const Feedback = ({ handleChange }) => {
   return (
     <>
       <h2>Please leave feedback</h2>
       <div>
-        <button type="button" id="good" onClick={hendleChange}>
+        <button type="button" name="good" id="good" onClick={handleChange}>
           Good
         </button>
-        <button type="button" id="neutral" onClick={hendleChange}>
+        <button
+          type="button"
+          name="neutral"
+          id="neutral"
+          onClick={handleChange}
+        >
           Neutral
         </button>
-        <button type="button" id="bad" onClick={hendleChange}>
+        <button type="button" name="bad" id="bad" onClick={handleChange}>
           Bad
         </button>
       </div>
     </>
   );
 };
-export default Feedback
+export default Feedback;
