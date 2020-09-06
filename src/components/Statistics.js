@@ -1,9 +1,9 @@
 import React from "react";
 
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+const Statistics = ({ good, neutral, bad, }) => {
 
-
+let total=good+neutral+bad;
   return (
     < >
         <h2>Statistics</h2>
@@ -13,7 +13,7 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
           <p>Bad: {bad}</p>
 
           <p>Total: {total}</p>
-          <p>Positive feedback: {positivePercentage}%</p>
+          {/* <p>Positive feedback: {positivePercentage}%</p> */}
         </div>
     </>
   );
