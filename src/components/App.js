@@ -1,48 +1,60 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // ====import components
-import Feedback from '../components/Feedback';
-import Statistics from '../components/Statistics'
+import Feedback from "../components/Feedback";
+import Statistics from "../components/Statistics";
 // =====import json-s
 
 // =====import styles
 
-const INITIAL_STATE = {
-  good: 0,
-  neutral: 0,
-  bad: 0
-}
- class App extends Component {
-   state = INITIAL_STATE;
-// setState({[name]}: good)
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
-  handleChange = e => {
-    
-      console.log(e.target);
-
-    
-    const { name, value } = e.target;
-    
-    this.setState({ [name]: value });
-    return {
-      value: value[name]+1,
-  
-    };
-
+  handleChange = ({ target }) => {
+    const { name } = target;
+    if (name === "good") {
+      this.setState((prevState) => {
+        return { good: prevState.good + 1 };
+      });
+      return;
+    }
+    if (name === "neutral") {
+      this.setState((prevState) => {
+        return { neutral: prevState.neutral + 1 };
+      });
+      return;
+    }
+    if (name === "bad") {
+      this.setState((prevState) => {
+        return { bad: prevState.bad + 1 };
+      });
+      return;
+    }
+  };
+  countTotalFeedback=()=>{
+    const { good, neutral, bad } = this.state;
+    return good+neutral+bad;
   }
-  
+  countPositiveFeedbackPercentage=()=>{
+    const { good } = this.state;
+    const total = this.countTotalFeedback();
+   return (good / total) * 100;
+  }
+
   render() {
     const { good, neutral, bad } = this.state;
-  return(
+    const total = this.countTotalFeedback();
+    const positive = this.countPositiveFeedbackPercentage()
+    return (
       <>
-        <Feedback  handleChange={this.handleChange}/>
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad}
-       
-        />
+        <Feedback handleChange={this.handleChange} />
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} positive={positive}/>
       </>
-    )}
-  };
-  
-  export default App
+    );
+  }
+}
+
+export default App;
