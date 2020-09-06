@@ -39,8 +39,7 @@ const INITIAL_STATE = {
           good={good}
           neutral={neutral}
           bad={bad}
-          // total={total}
-          // positivePercentage={persentage}
+       
         />
       </>
     )}
