@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-// ====import components
-import Feedback from "../components/Feedback";
+// ====import components 
+import Section from '../components/Section'
+import Feedback from "../components/Feedback"; 
 import Statistics from "../components/Statistics";
-// =====import json-s
 
 // =====import styles
 
@@ -49,9 +49,10 @@ class App extends Component {
     const total = this.countTotalFeedback();
     const positive = this.countPositiveFeedbackPercentage()
     return (
-      <>
+      <>   <Section title="Please leave feedback">
         <Feedback handleChange={this.handleChange} />
-        <Statistics good={good} neutral={neutral} bad={bad} total={total} positive={positive}/>
+
+        <Statistics good={good} neutral={neutral} bad={bad} total={total} positive={positive}/></Section>
       </>
     );
   }
