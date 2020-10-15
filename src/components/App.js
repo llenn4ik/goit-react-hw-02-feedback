@@ -1,9 +1,10 @@
 import React, { Component } from "react";
- 
+
 import Section from "../components/Section";
 import Feedback from "../components/Feedback";
 import Statistics from "../components/Statistics";
 
+import s from "../css/styles.module.css";
 
 class App extends Component {
   state = {
@@ -50,7 +51,7 @@ class App extends Component {
     return (
       <>
         {" "}
-        <Section title="Please leave feedback">
+        <Section title="Please leave feedback" className={s.section_feedback}>
           <Feedback handleChange={this.handleChange} />
 
           <Statistics

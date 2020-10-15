@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Feedback = ({ handleChange }) => {
   return (
@@ -15,4 +16,9 @@ const Feedback = ({ handleChange }) => {
     </div>
   );
 };
+
+Feedback.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};
+
 export default Feedback;
