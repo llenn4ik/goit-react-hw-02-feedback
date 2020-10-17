@@ -12,27 +12,11 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
-
   handleChange = ({ target }) => {
     const { name } = target;
-    if (name === "good") {
       this.setState((prevState) => {
-        return { good: prevState.good + 1 };
+        return { [name]: prevState[name] + 1 };
       });
-      return;
-    }
-    if (name === "neutral") {
-      this.setState((prevState) => {
-        return { neutral: prevState.neutral + 1 };
-      });
-      return;
-    }
-    if (name === "bad") {
-      this.setState((prevState) => {
-        return { bad: prevState.bad + 1 };
-      });
-      return;
-    }
   };
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
